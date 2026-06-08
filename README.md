@@ -18,7 +18,7 @@
 
 [Strategies](#strategies) • [Venue Coverage](#venue-coverage) • [Engine](#engine) • [Safety](#safety) • [Contact](#contact)
 
-**🌐 Language / 语言:** [English](#polymarket-toolkits) • [简体中文](README.zh-CN.md)
+**🌐 Language / 语言 / Язык:** [English](#prediction-market-toolkits) • [简体中文](README.zh-CN.md) • [Русский](README.ru.md)
 
 </div>
 
@@ -161,7 +161,7 @@ Built and maintained actively. If you're working on Polymarket tooling, algorith
 
 **Built for the Prediction Markets including Polymarket, Kalshi, Limitless etc**
 
-[Back to top](#polymarket-toolkits)
+[Back to top](#prediction-market-toolkits)
 
 </div>
 

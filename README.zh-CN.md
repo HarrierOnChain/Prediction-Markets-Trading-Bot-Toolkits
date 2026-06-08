@@ -2,21 +2,23 @@
 
 <div align="center">
 
-<img width="1472" height="615" alt="Polymarket 工具包 TUI" src="https://github.com/user-attachments/assets/b6c51ba1-14c6-4582-858c-e9441516dd1d" />
-<img width="1224" height="843" alt="image" src="https://github.com/user-attachments/assets/66d9cb72-e14a-414f-93e5-600fb1d3f49f" />
+<img width="820" alt="Polymarket 工具包 TUI" src="https://github.com/user-attachments/assets/b6c51ba1-14c6-4582-858c-e9441516dd1d" />
+<img width="820" alt="image" src="https://github.com/user-attachments/assets/66d9cb72-e14a-414f-93e5-600fb1d3f49f" />
 
-### 多平台预测市场交易基础设施 — Polymarket · Kalshi · Limitless
+### 平台无关的预测市场交易基础设施 — 任何带订单簿的市场
 
 [![Rust](https://img.shields.io/badge/rust-1.70+-orange.svg?style=flat-square&logo=rust)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Tokio](https://img.shields.io/badge/async-tokio-blue.svg?style=flat-square)](https://tokio.rs/)
-[![Polymarket](https://img.shields.io/badge/venue-Polymarket-6e40c9.svg?style=flat-square)](https://polymarket.com)
-[![Kalshi](https://img.shields.io/badge/venue-Kalshi-0066cc.svg?style=flat-square)](https://kalshi.com)
-[![Limitless](https://img.shields.io/badge/venue-Limitless-00b894.svg?style=flat-square)](https://limitless.exchange)
+[![Live venues](https://img.shields.io/badge/已上线-Polymarket·Kalshi·Limitless-6e40c9.svg?style=flat-square)](#平台覆盖)
+[![Roadmap](https://img.shields.io/badge/路线图-27+_平台-555.svg?style=flat-square)](#平台覆盖)
 
-[策略](#策略) • [引擎](#引擎) • [安全](#安全) • [联系方式](#联系方式)
+> **一套执行核心。一套风控层。覆盖所有平台。**
+> 十款策略机器人运行在同一套久经实战的引擎与平台无关的适配层之上。接入一个新市场只需写**一个适配器**——而不是重建一个机器人。今天有三个平台已在生产环境上线；预测市场宇宙的其余部分都是适配器驱动的路线图。
 
-**🌐 Language / 语言:** [English](README.md) • [简体中文](#预测市场工具包)
+[策略](#策略) • [平台覆盖](#平台覆盖) • [引擎](#引擎) • [安全](#安全) • [联系方式](#联系方式)
+
+**🌐 Language / 语言 / Язык:** [English](README.md) • [简体中文](#预测市场工具包) • [Русский](README.ru.md)
 
 </div>
 
@@ -27,217 +29,67 @@
 完整的十款生产级交易机器人组合，每一款都围绕一个清晰、独立的市场优势精心打造。所有策略共享同一套久经实战的执行核心、风控层与平台无关的适配层——你获得的是一致的性能表现、统一的风险控制、以及覆盖全部玩法的统一运维界面。挑一个匹配你判断的优势上场；底层基础设施已经为你搭好了。
 
 
-### 1. 跟单交易（Copy Trading）
+> 📦 **完整的图文讲解、截图与各平台配置都放在每个市场各自的专属仓库里** —— 目录见 [平台覆盖](#平台覆盖)。下表是策略索引；每款机器人都运行在共享引擎与[安全层](#安全)之上，并完整支持空跑模式。
 
-> 自动镜像顶级钱包的交易，仓位规模与风险限制可配置。
-
-<img width="1843" height="879" alt="image" src="https://github.com/user-attachments/assets/57d64038-9567-4bf9-8954-a83e737ca416" />
-
-
-🎯 **把研究外包给已经被证明拥有 alpha 的钱包。** 无需自研、无需盯盘、无需反复纠结——机器人复制，你做复利。
-
-跟踪一个或多个高表现钱包，自动镜像其 BUY/SELL 动作。复制比例、最小交易额、熔断阈值全部可配置。这是目前唯一完全发布的机器人，其他所有策略都是在它建立的基础设施之上构建的。
-
-| | |
-|---|---|
-| **追踪钱包** | 多钱包并发 |
-| **订单类型** | FAK / GTD |
-| **风控限制** | 熔断器 + 深度护卫 |
-| **空跑模式** | 完整支持 |
-| **状态** | ✅ 已生产可用 |
-
-[联系方式](https://t.me/HarrierOnChain)
+| # | 策略 | 一句话优势 | 关键规格 |
+|---|------|-----------|----------|
+| 1 | 🎯 **跟单交易** | 镜像已被证明拥有 alpha 的钱包 | 多钱包 · FAK/GTD · 熔断器 |
+| 2 | ⚡ **BTC 5m / 15m / 1h 套利** | 短窗口 BTC 涨跌上的速度优势 | ~42ms 端到端 · FAK |
+| 3 | 💰 **跨平台套利** | 锁价差，不锁方向 | Polymarket ↔ Kalshi · 对冲双腿 |
+| 4 | 🎯 **方向猎取** | 规则定义一次，引擎全天候执行 | 5m / 15m · 自动 TP + SL |
+| 5 | 📈 **价差耕作** | 一千次 0.5¢ 小胜复利成大数字 | 买卖价差捕获 · 单笔 P&L |
+| 6 | 🏆 **体育执行** | 点击。成交。完成——不到 50ms | NBA / NFL / 足球 · &lt;50ms FAK |
+| 7 | 🎯 **结算狙击** | 95¢ 近确定性 → 确定的 $1.00 派息 | 确定性扫描 · 持有至结算 |
+| 8 | 📊 **订单簿失衡** | 信号本身就是订单簿——无需外部数据源 | 实时 OBI · 500ms 刷新 |
+| 9 | 💰 **做市商** | 当庄家，不当赌客 | 双边 GTD · 库存倾斜 |
+| 10 | ⚡ **链上鲸鱼信号** | 比公开仓位 API 早 3–30 秒 | Polygon 区块订阅 · ABI calldata 解码 |
 
 ---
 
-### 2. BTC 5 分 / 15 分 / 1 小时套利
-
-> 短窗口 BTC 涨跌市场上的速度型策略。
-
-<p align="center">
-  <img width="49%" alt="image" src="https://github.com/user-attachments/assets/11df1045-7782-4085-bf7c-cae6d381273f" />
-  <img width="49%" alt="image" src="https://github.com/user-attachments/assets/246c962b-a54e-497d-a40d-3812d447f4c1" />
-</p>
-
-⚡ **端到端 42ms——你还没读完市场标题，机器人就已经在订单簿里了。** 这里不是人类反应能跟得上的地方。
-
-监控 BTC 涨跌窗口。一旦出现定价偏差或方向性机会，机器人会在窗口关闭前以低延迟下达 FAK 订单。支持空跑与实盘两种模式。
-
-| | |
-|---|---|
-| **市场** | BTC 涨跌 — 5m, 15m, 1hr |
-| **订单类型** | FAK |
-| **执行** | ~42ms 端到端 |
-| **状态** | ✅ 已生产可用 |
-
-[联系方式](https://t.me/HarrierOnChain)
-
----
-
-### 3. Polymarket ↔ Kalshi 跨平台套利
-
-> 15 分钟窗口下的跨平台定价偏差。
-
-<img width="1543" height="654" alt="image" src="https://github.com/user-attachments/assets/2108db5d-369d-4f80-9e6e-2b03e63e291a" />
-
-
-💰 **锁定的是价差，不是方向。** 双腿对冲——你的盈亏来自价差本身，与底层资产怎么走无关。
-
-同时监控两个平台上的同一市场。当达到可配置的价差阈值时，机器人在两端执行对冲腿——便宜的一边买入、贵的一边卖出——锁定价差。
-
-| | |
-|---|---|
-| **平台** | Polymarket ↔ Kalshi |
-| **价差阈值** | 可配置（如 ≥ 0.8¢） |
-| **日志** | 完整盈亏记录 |
-| **状态** | ✅ 已生产可用 |
-
-[联系方式](https://t.me/HarrierOnChain)
-
----
-
-### 4. 方向猎取（Direction Hunting）
-
-> 短窗口动量与单边流向机会。
-
-<img width="1190" height="855" alt="image" src="https://github.com/user-attachments/assets/f18aa0ee-a357-41c7-bdb1-c2b9006ebc06" /><img width="1190" height="855" alt="image" src="https://github.com/user-attachments/assets/0b793b61-8274-445b-b610-bc7cc7b601b9" />
-
-🎯 **规则定义一次，引擎全天候执行。** 入场、止盈、止损全自动——周末交给你，盯盘交给机器人。
-
-持续扫描多个标的与时间窗口，匹配你设定的入场条件。信号触发时入场，并按可配置的 TP/SL 自动管理出场。带实时信号提醒。
-
-| | |
-|---|---|
-| **窗口** | 5m, 15m（可配置） |
-| **入场条件** | 可配置的动量 / 流向规则 |
-| **出场** | TP + SL，自动平仓 |
-| **状态** | ✅ 已生产可用 |
-
-[联系方式](https://t.me/HarrierOnChain)
-
----
-
-### 5. 价差耕作（Spread Farming）
-
-> 系统化、可重复的微观优势。
-
-<img width="1052" height="798" alt="image" src="https://github.com/user-attachments/assets/6b231a2d-2e39-422e-b929-87f676289b58" />
-
-📈 **一千次 0.5¢ 的小胜，复利出来就是一个大数字。** 有纪律、可重复、平淡得恰到好处——这才是穿越所有市场环境的真正优势。
-
-以规则驱动的方式收割买卖价差。机器人挂在价差上，等待成交条件齐备，按一致的仓位规模执行。每笔交易与每次会话的盈亏都有完整记录。
-
-| | |
-|---|---|
-| **优势来源** | 买卖价差，可重复 |
-| **日志** | 单笔盈亏 + 会话汇总 |
-| **状态** | ✅ 已生产可用 |
-
-[联系方式](https://t.me/HarrierOnChain)
-
----
-
-### 6. 体育博彩执行
-
-> 实时体育市场上的"点击即下单"速度。
-
-<img width="1175" height="852" alt="image" src="https://github.com/user-attachments/assets/174ed883-5153-4114-87b8-5e4e76a20cbc" />
-
-🏆 **点击。成交。完成——全程不到 50ms。** 在所有手动玩家还在确认订单时，你已经吃到了让他们破功的盘口移动。
-
-专注的实时体育交互界面，将实时赔率与高速 FAK 执行结合。选比赛、选 YES/NO、设仓位、按下执行——订单在 50ms 内送达。
-
-| | |
-|---|---|
-| **运动项目** | NBA、NFL、足球等 |
-| **执行** | < 50ms |
-| **状态** | ✅ 已生产可用 |
-
-[联系方式](https://t.me/HarrierOnChain)
-
----
-
-### 7. 结算狙击（Resolution Sniper）
-
-> 预测市场独有的高胜率、低方差打法。
-
-<img width="1052" height="798" alt="image" src="https://github.com/user-attachments/assets/6b231a2d-2e39-422e-b929-87f676289b58" />
-
-🎯 **95%+ 概率买在 95¢ → 持有到结算时确定性的 $1.00 派息。** 这是任何市场提供过的最接近"白送钱"的玩法——而且只在预测市场里存在。
-
-扫描所有活跃市场，寻找接近确定性的结果（例如 ≥ 95% YES 或 ≤ 5% NO）。在符合狙击窗口的市场上买入接近确定性的一边，持有至 $1.00 结算派息。
-
-| | |
-|---|---|
-| **确定性阈值** | 可配置 |
-| **派息** | 结算时每股 $1.00 |
-| **平台** | Polymarket · Kalshi · Limitless |
-| **状态** | ✅ 已生产可用 |
-
-[联系方式](https://t.me/HarrierOnChain)
-
----
-
-### 8. 订单簿失衡（Orderbook Imbalance）
-
-> 纯订单流信号，无需任何外部数据。
-
-<img width="1017" height="789" alt="image" src="https://github.com/user-attachments/assets/05d3e6c5-ec26-420a-9cd6-a95ca6d0fff8" />
-
-📊 **不订阅、不接外部数据源、不依赖会坏的 API。** 信号本身就是订单簿——自给自足、坚不可摧，且无法被抢跑，因为没人能看到和你一样的视角。
-
-监控配置市场的实时买卖深度比（OBI）。当 OBI 超过阈值时，机器人逆向冲入主导方向——买盘重时反向卖出，卖盘重时反向买入。信号完全来自 500ms 刷新的实时订单簿，独立于任何外部源。
-
-| | |
-|---|---|
-| **信号来源** | 仅实时订单簿 |
-| **刷新频率** | 500ms |
-| **平台** | Polymarket · Kalshi · Limitless |
-| **状态** | ✅ 已生产可用 |
-
-[联系方式](https://t.me/HarrierOnChain)
-
----
-
-### 9. 做市商（Market Making）
-
-> 在流动性差的预测市场被动赚取价差收入。
-
-<img width="1013" height="784" alt="image" src="https://github.com/user-attachments/assets/97c31543-317b-4619-8421-8e9510c05e84" />
-
-💰 **当庄家，不当赌客。** 双边挂单，每笔成交都吃价差——与方向无关的收入，规模随成交量而非运气增长。
-
-用 GTD 订单在两边持续报价。库存倾斜机制会在某一边被吃得过多时自动调整报价以再平衡 YES/NO 敞口。成交后自动撤掉对侧。
-
-| | |
-|---|---|
-| **订单管理** | 成交即撤、自动重新报价 |
-| **库存控制** | 可配置倾斜上限 |
-| **平台** | Polymarket · Kalshi |
-| **状态** | ✅ 已生产可用 |
-
-[联系方式](https://t.me/HarrierOnChain)
-
----
-
-### 10. 链上鲸鱼信号
-
-> 最快可能的信号——比仓位 API 提前 3–30 秒。
-
-<img width="791" height="449" alt="image" src="https://github.com/user-attachments/assets/c549cd4b-f40a-4253-a4b7-601cce44160b" />
-
-⚡ **比地球上其他所有跟踪器都快 3–30 秒。** 直接订阅 Polygon 区块——你能在公开仓位 API 还没意识到这笔交易存在之前，就看到鲸鱼的下单。
-
-直接订阅 Polygon 区块数据，过滤被追踪大额钱包与 Polymarket CLOB 合约的交互交易。一旦链上确认，立即解码 calldata（token ID、规模、方向）并镜像下单——通常比公开仓位 API 上反映出来的变化早 3–30 秒。
-
-| | |
-|---|---|
-| **信号来源** | Polygon 链上区块订阅 |
-| **领先时间** | 比仓位 API 早 3–30 秒 |
-| **解码方式** | ABI calldata 解析 |
-| **状态** | ✅ 已生产可用 |
-
-[联系方式](https://t.me/HarrierOnChain)
+## 平台覆盖
+
+引擎与平台无关：任何对外提供订单簿或仓位数据的平台，都能通过单个适配器接入。
+当前有三个平台**已在生产环境上线**；预测市场的其余版图都在适配器驱动的路线图上。
+
+**图例：** 🟢 已上线 · 🟡 测试中（适配器调试中） · ⚪ 路线图（适配器驱动）
+
+### 🟢 已上线
+
+| 平台 | 类型 | 运行中的策略 |
+|---|---|---|
+| **Polymarket** | 去中心化（Polygon / USDC） | 全部 10 款 — 完整覆盖 |
+| **Kalshi** | CFTC 监管（美国） | 跨平台套利 · 结算狙击 · OBI · 做市 · 方向猎取 · 价差耕作 · 体育 |
+| **Limitless** | 链上订单簿 | 结算狙击 · OBI · 价差耕作 |
+
+### 传统 / 合规平台 — 路线图
+
+| 平台 | 类型 | 状态 | 最适配的策略 |
+|---|---|---|---|
+| **Robinhood Predictions** | 券商集成 | ⚪ 路线图 | 方向猎取 · 体育 |
+| **Crypto.com Predictions** | 加密集成 | ⚪ 路线图 | BTC 套利 · 方向猎取 |
+| **OG.com** | 社交 / 多结果 | ⚪ 路线图 | 体育 · OBI · 做市 |
+| **DraftKings Predictions** | 体育 | ⚪ 路线图 | 体育执行 |
+| **FanDuel Predicts** | 体育 | ⚪ 路线图 | 体育执行 |
+| **Fanatics Markets** | 体育 / 娱乐 | ⚪ 路线图 | 体育执行 |
+| **Interactive Brokers ForecastTrader** | 金融事件 | ⚪ 路线图 | 结算狙击 · 价差耕作 · 做市 |
+| **PredictIt** | 学术 / 美国政治 | ⚪ 路线图 | 结算狙击（仅研究，有下注上限） |
+
+### 加密 / 去中心化平台 — 路线图
+
+| 平台 | 链 / 类型 | 状态 | 最适配的策略 |
+|---|---|---|---|
+| **Drift BET** | Solana | ⚪ 路线图 | BTC 套利 · OBI · 做市 · 鲸鱼信号 |
+| **Azuro** | 去中心化协议 | ⚪ 路线图 | 体育 · OBI |
+| **Hedgehog Markets** | Solana / 社交 | ⚪ 路线图 | 跟单交易 · 方向猎取 |
+| **Augur** | 以太坊 | ⚪ 路线图 | 结算狙击 · OBI |
+| **Zeitgeist** | Polkadot | ⚪ 路线图 | OBI · 做市 |
+| **Myriad Markets** | 加密 | ⚪ 路线图 | OBI · 方向猎取 |
+| **Projection Finance** | 波动率 / 模拟 | ⚪ 路线图 | 方向猎取 · 价差耕作 |
+| **Better Fan** | 体育 / 电竞 | ⚪ 路线图 | 体育执行 |
+| **Manifold Markets** | 虚拟币（玩乐性质） | ⚪ 路线图 | 方向猎取（回测 / 研究沙盒） |
+
+> **想优先接入某个平台？** 适配器开发是需求驱动的——如果你交易的平台尚未上线，
+> [联系我](https://t.me/HarrierOnChain)，它就能往队列前面挪。
 
 ---
 
