@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 
-export type Lang = 'en' | 'zh';
+export type Lang = 'en' | 'zh' | 'ru';
 
 interface LangContextValue {
   lang: Lang;
@@ -13,13 +13,14 @@ function detectInitialLang(): Lang {
   if (typeof window === 'undefined') return 'en';
   try {
     const stored = window.localStorage.getItem('lang');
-    if (stored === 'en' || stored === 'zh') return stored;
+    if (stored === 'en' || stored === 'zh' || stored === 'ru') return stored;
   } catch {
     // localStorage may be blocked
   }
   if (typeof navigator !== 'undefined') {
     const browser = (navigator.language ?? '').toLowerCase();
     if (browser.startsWith('zh')) return 'zh';
+    if (browser.startsWith('ru')) return 'ru';
   }
   return 'en';
 }
@@ -38,7 +39,7 @@ export function LangProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (typeof document !== 'undefined') {
-      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'ru' ? 'ru' : 'en';
     }
   }, [lang]);
 

@@ -61,6 +61,16 @@ function LangToggle() {
       >
         中文
       </button>
+      <button
+        type="button"
+        onClick={() => setLang('ru')}
+        aria-pressed={lang === 'ru'}
+        className={`px-2.5 py-1 rounded-md transition-colors ${
+          lang === 'ru' ? 'bg-bg-base text-white' : 'text-zinc-500 hover:text-zinc-200'
+        }`}
+      >
+        РУ
+      </button>
     </div>
   );
 }
