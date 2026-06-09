@@ -139,6 +139,16 @@ export interface Messages {
     ladderSubtitle: string;
     ladder: LadderStep[];
   };
+  howItWorks: {
+    eyebrow: string;
+    headline: string;
+    description: string;
+    steps: { num: string; title: string; body: string }[];
+    getTitle: string;
+    gets: string[];
+    note: string;
+    cta: string;
+  };
   cta: {
     eyebrow: string;
     headline: string;
@@ -430,6 +440,26 @@ const messages: Record<Lang, Messages> = {
         { stage: 'Ongoing', action: 'Watch circuit-breaker trips — they surface execution anomalies.' },
         { stage: 'Production', action: 'Use a dedicated wallet with only the capital you intend to deploy.' },
       ],
+    },
+    howItWorks: {
+      eyebrow: 'How it works',
+      headline: 'From repo to live bot in three steps.',
+      description:
+        'No black box. You run the same Rust engine the screenshots show — on your machine, your keys, your capital.',
+      steps: [
+        { num: '01', title: 'Pick your edge', body: 'Choose the strategy and venue that fit your thesis. Each bot is a distinct, well-defined market edge on the shared engine.' },
+        { num: '02', title: 'Configure & dry-run', body: 'Drop in your keys, set risk limits, and run with enable_trading: false until you trust the signal — zero capital at risk.' },
+        { num: '03', title: 'Go live', body: 'Flip to live on a dedicated wallet with the capital you choose. Watch fills, P&L, and circuit-breaker state from the real-time TUI.' },
+      ],
+      getTitle: 'What you get',
+      gets: [
+        'Full Rust source — MIT licensed, yours to read and modify',
+        'Guided setup — direct help getting your first bot running',
+        'The shared risk layer — circuit breaker, depth guard, dry-run, trade floor',
+        'Ongoing updates — new venues and strategy upgrades as they ship',
+      ],
+      note: 'Source-available with hands-on setup. Message on Telegram for access and pricing.',
+      cta: 'Get access on Telegram',
     },
     cta: {
       eyebrow: 'Get started',
@@ -734,6 +764,26 @@ const messages: Record<Lang, Messages> = {
         { stage: '生产环境', action: '使用专用钱包，只放你打算部署的资金。' },
       ],
     },
+    howItWorks: {
+      eyebrow: '工作流程',
+      headline: '三步，从仓库到实盘机器人。',
+      description:
+        '没有黑箱。你运行的就是截图里那套 Rust 引擎——在你自己的机器、你的密钥、你的资金上。',
+      steps: [
+        { num: '01', title: '挑选你的优势', body: '选择匹配你判断的策略与平台。每款机器人都是共享引擎之上一个清晰、独立的市场优势。' },
+        { num: '02', title: '配置并空跑', body: '填入密钥、设置风险上限，用 enable_trading: false 运行，直到你信任信号——零资金风险。' },
+        { num: '03', title: '上线实盘', body: '切换到实盘，使用专用钱包和你决定的资金。在实时 TUI 中查看成交、盈亏与熔断状态。' },
+      ],
+      getTitle: '你将获得',
+      gets: [
+        '完整 Rust 源代码——MIT 许可，可自由阅读与修改',
+        '引导式部署——直接协助你跑通第一个机器人',
+        '共享风控层——熔断器、深度护卫、空跑、最小交易额',
+        '持续更新——新平台与策略升级随发布同步',
+      ],
+      note: '源码可得，并提供动手部署支持。访问与报价请在 Telegram 联系。',
+      cta: '在 Telegram 获取访问',
+    },
     cta: {
       eyebrow: '开始使用',
       headline: '准备好让机器人开始工作了吗？',
@@ -1034,6 +1084,26 @@ const messages: Record<Lang, Messages> = {
         { stage: 'Постоянно', action: 'Следите за срабатываниями предохранителя — они вскрывают аномалии исполнения.' },
         { stage: 'Продакшен', action: 'Используйте выделенный кошелёк только с тем капиталом, который собираетесь задействовать.' },
       ],
+    },
+    howItWorks: {
+      eyebrow: 'Как это работает',
+      headline: 'От репозитория до живого бота за три шага.',
+      description:
+        'Никакого чёрного ящика. Вы запускаете тот же движок на Rust, что на скриншотах — на своей машине, со своими ключами и капиталом.',
+      steps: [
+        { num: '01', title: 'Выберите преимущество', body: 'Выберите стратегию и площадку под свою гипотезу. Каждый бот — отдельное, чётко определённое рыночное преимущество на общем движке.' },
+        { num: '02', title: 'Настройте и dry-run', body: 'Введите ключи, задайте лимиты риска и запустите с enable_trading: false, пока не доверитесь сигналу — ноль капитала под риском.' },
+        { num: '03', title: 'Запуск вживую', body: 'Переключитесь на живую торговлю с выделенного кошелька и выбранным капиталом. Следите за исполнениями, P&L и предохранителем в реальном TUI.' },
+      ],
+      getTitle: 'Что вы получаете',
+      gets: [
+        'Полный исходный код на Rust — лицензия MIT, читайте и меняйте',
+        'Сопровождаемая настройка — прямая помощь с запуском первого бота',
+        'Общий слой риска — предохранитель, защита глубины, dry-run, минимум сделки',
+        'Постоянные обновления — новые площадки и апгрейды стратегий по мере выхода',
+      ],
+      note: 'Исходный код доступен, настройка — с поддержкой. Доступ и цены — напишите в Telegram.',
+      cta: 'Получить доступ в Telegram',
     },
     cta: {
       eyebrow: 'Начать',
