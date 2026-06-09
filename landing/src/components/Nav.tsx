@@ -16,6 +16,7 @@ export function Nav() {
 
         <div className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
           <a href="#strategies" className="hover:text-white transition-colors">{t.nav.strategies}</a>
+          <a href="#venues" className="hover:text-white transition-colors">{t.nav.venues}</a>
           <a href="#engine" className="hover:text-white transition-colors">{t.nav.engine}</a>
           <a href="#safety" className="hover:text-white transition-colors">{t.nav.safety}</a>
           <a href="#contact" className="hover:text-white transition-colors">{t.nav.contact}</a>

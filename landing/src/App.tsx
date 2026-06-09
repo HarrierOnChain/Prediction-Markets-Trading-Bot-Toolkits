@@ -2,6 +2,7 @@ import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
 import { LiveSignalSection } from './components/LiveSignalSection';
 import { BotsSection } from './components/BotsSection';
+import { VenuesSection } from './components/VenuesSection';
 import { EngineSection } from './components/EngineSection';
 import { SafetySection } from './components/SafetySection';
 import { CtaSection } from './components/CtaSection';
@@ -15,6 +16,7 @@ export default function App() {
         <Hero />
         <LiveSignalSection />
         <BotsSection />
+        <VenuesSection />
         <EngineSection />
         <SafetySection />
         <CtaSection />

@@ -20,7 +20,67 @@ export interface BotMeta {
 }
 
 export const TELEGRAM_URL = 'https://t.me/HarrierOnChain';
-export const GITHUB_URL = 'https://github.com/haredoggy/Prediction-Markets-Trading-Bot-Toolkits';
+export const GITHUB_OWNER = 'HarrierOnChain';
+export const GITHUB_URL = `https://github.com/${GITHUB_OWNER}/Prediction-Markets-Trading-Bot-Toolkits`;
+
+export type VenueStatus = 'live' | 'roadmap';
+export type VenueGroup = 'live' | 'traditional' | 'crypto';
+
+export interface VenueMeta {
+  repo: string; // exact spoke repo name under GITHUB_OWNER
+  name: string;
+  group: VenueGroup;
+  status: VenueStatus;
+  type: { en: string; zh: string; ru: string };
+}
+
+export const venueRepoUrl = (repo: string) => `https://github.com/${GITHUB_OWNER}/${repo}`;
+
+// Mirrors the hub README venue coverage tables + the per-venue spoke repos.
+export const venues: VenueMeta[] = [
+  { repo: 'Polymarket', name: 'Polymarket', group: 'live', status: 'live',
+    type: { en: 'Decentralized (Polygon / USDC)', zh: '去中心化（Polygon / USDC）', ru: 'Децентрализованная (Polygon / USDC)' } },
+  { repo: 'Kalshi', name: 'Kalshi', group: 'live', status: 'live',
+    type: { en: 'CFTC-regulated (US)', zh: '受 CFTC 监管（美国）', ru: 'Регулируется CFTC (США)' } },
+  { repo: 'Limitless-Exchange', name: 'Limitless', group: 'live', status: 'live',
+    type: { en: 'On-chain order book', zh: '链上订单簿', ru: 'Ончейн-стакан заявок' } },
+
+  { repo: 'Robinhood-Predictions', name: 'Robinhood Predictions', group: 'traditional', status: 'roadmap',
+    type: { en: 'Brokerage-integrated', zh: '券商集成', ru: 'Брокерская интеграция' } },
+  { repo: 'Crypto.com-Predictions', name: 'Crypto.com Predictions', group: 'traditional', status: 'roadmap',
+    type: { en: 'Crypto-integrated', zh: '加密集成', ru: 'Крипто-интеграция' } },
+  { repo: 'OG.com', name: 'OG.com', group: 'traditional', status: 'roadmap',
+    type: { en: 'Social / multi-outcome', zh: '社交 / 多结果', ru: 'Социальная / мультиисход' } },
+  { repo: 'DraftKings-Predictions', name: 'DraftKings Predictions', group: 'traditional', status: 'roadmap',
+    type: { en: 'Sports', zh: '体育', ru: 'Спорт' } },
+  { repo: 'FanDuel-Predicts', name: 'FanDuel Predicts', group: 'traditional', status: 'roadmap',
+    type: { en: 'Sports', zh: '体育', ru: 'Спорт' } },
+  { repo: 'Fanatics-Markets', name: 'Fanatics Markets', group: 'traditional', status: 'roadmap',
+    type: { en: 'Sports / entertainment', zh: '体育 / 娱乐', ru: 'Спорт / развлечения' } },
+  { repo: 'Interactive-Brokers-ForecastTrader', name: 'Interactive Brokers ForecastTrader', group: 'traditional', status: 'roadmap',
+    type: { en: 'Financial events', zh: '金融事件', ru: 'Финансовые события' } },
+  { repo: 'PredictIt', name: 'PredictIt', group: 'traditional', status: 'roadmap',
+    type: { en: 'Academic / US politics', zh: '学术 / 美国政治', ru: 'Академическая / политика США' } },
+
+  { repo: 'Drift-BET', name: 'Drift BET', group: 'crypto', status: 'roadmap',
+    type: { en: 'Solana', zh: 'Solana', ru: 'Solana' } },
+  { repo: 'Azuro', name: 'Azuro', group: 'crypto', status: 'roadmap',
+    type: { en: 'Decentralized protocol', zh: '去中心化协议', ru: 'Децентрализованный протокол' } },
+  { repo: 'Hedgehog-Markets', name: 'Hedgehog Markets', group: 'crypto', status: 'roadmap',
+    type: { en: 'Solana / social', zh: 'Solana / 社交', ru: 'Solana / социальная' } },
+  { repo: 'Augur', name: 'Augur', group: 'crypto', status: 'roadmap',
+    type: { en: 'Ethereum', zh: '以太坊', ru: 'Ethereum' } },
+  { repo: 'Zeitgeist', name: 'Zeitgeist', group: 'crypto', status: 'roadmap',
+    type: { en: 'Polkadot', zh: 'Polkadot', ru: 'Polkadot' } },
+  { repo: 'Myriad-Markets', name: 'Myriad Markets', group: 'crypto', status: 'roadmap',
+    type: { en: 'Crypto', zh: '加密', ru: 'Крипто' } },
+  { repo: 'Projection-Finance', name: 'Projection Finance', group: 'crypto', status: 'roadmap',
+    type: { en: 'Volatility / sims', zh: '波动率 / 模拟', ru: 'Волатильность / симуляции' } },
+  { repo: 'Better-Fan', name: 'Better Fan', group: 'crypto', status: 'roadmap',
+    type: { en: 'Sports / esports', zh: '体育 / 电竞', ru: 'Спорт / киберспорт' } },
+  { repo: 'Manifold-Markets', name: 'Manifold Markets', group: 'crypto', status: 'roadmap',
+    type: { en: 'Play-money', zh: '虚拟币（玩乐性质）', ru: 'Игровые деньги' } },
+];
 
 export const bots: BotMeta[] = [
   { id: 'copy-trading', emoji: '🎯', status: 'production', accent: 'purple' },

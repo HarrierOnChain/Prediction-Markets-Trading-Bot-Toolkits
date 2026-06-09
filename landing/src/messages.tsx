@@ -67,12 +67,26 @@ export interface Messages {
   langName: { en: string; zh: string; ru: string };
   nav: {
     strategies: string;
+    venues: string;
     engine: string;
     safety: string;
     contact: string;
     github: string;
     telegram: string;
     langSwitch: string;
+  };
+  venues: {
+    eyebrow: string;
+    headline: string;
+    description: string;
+    statusLive: string;
+    statusRoadmap: string;
+    groupLive: string;
+    groupTraditional: string;
+    groupCrypto: string;
+    cardCta: string;
+    footnote: string;
+    footnoteCta: string;
   };
   hero: {
     badge: string;
@@ -147,12 +161,27 @@ const messages: Record<Lang, Messages> = {
     langName: { en: 'English', zh: '简体中文', ru: 'Русский' },
     nav: {
       strategies: 'Strategies',
+      venues: 'Venues',
       engine: 'Engine',
       safety: 'Safety',
       contact: 'Contact',
       github: 'GitHub',
       telegram: 'Telegram',
       langSwitch: 'Language',
+    },
+    venues: {
+      eyebrow: 'Venue Coverage',
+      headline: 'One engine. Every venue.',
+      description:
+        'The engine is venue-agnostic — any platform with an order book or position feed plugs in through a single adapter. Three venues are live in production today; the rest of the prediction-market universe is adapter-driven roadmap. Each venue has its own dedicated bot repo.',
+      statusLive: 'Live',
+      statusRoadmap: 'Roadmap',
+      groupLive: '🟢 Live today',
+      groupTraditional: 'Traditional / Regulated — roadmap',
+      groupCrypto: 'Crypto / Decentralized — roadmap',
+      cardCta: 'Open repo →',
+      footnote: 'Want a venue prioritized? Adapter work is demand-driven — if you trade a platform not yet live, it can move up the queue.',
+      footnoteCta: 'Request a venue →',
     },
     hero: {
       badge: '10 strategies · one battle-tested engine',
@@ -435,12 +464,27 @@ const messages: Record<Lang, Messages> = {
     langName: { en: 'English', zh: '简体中文', ru: 'Русский' },
     nav: {
       strategies: '策略',
+      venues: '平台',
       engine: '引擎',
       safety: '安全',
       contact: '联系',
       github: 'GitHub',
       telegram: 'Telegram',
       langSwitch: '语言',
+    },
+    venues: {
+      eyebrow: '平台覆盖',
+      headline: '一套引擎。覆盖所有平台。',
+      description:
+        '引擎与平台无关——任何带订单簿或仓位数据的平台都能通过单个适配器接入。今天有三个平台已在生产环境上线；预测市场宇宙的其余部分都是适配器驱动的路线图。每个平台都有自己专属的机器人仓库。',
+      statusLive: '已上线',
+      statusRoadmap: '路线图',
+      groupLive: '🟢 已上线',
+      groupTraditional: '传统 / 合规平台 — 路线图',
+      groupCrypto: '加密 / 去中心化平台 — 路线图',
+      cardCta: '打开仓库 →',
+      footnote: '想优先接入某个平台？适配器开发是需求驱动的——如果你交易的平台尚未上线，它可以往队列前面挪。',
+      footnoteCta: '申请接入平台 →',
     },
     hero: {
       badge: '十款策略 · 同一套久经实战的引擎',
@@ -721,12 +765,27 @@ const messages: Record<Lang, Messages> = {
     langName: { en: 'English', zh: '简体中文', ru: 'Русский' },
     nav: {
       strategies: 'Стратегии',
+      venues: 'Площадки',
       engine: 'Движок',
       safety: 'Безопасность',
       contact: 'Контакты',
       github: 'GitHub',
       telegram: 'Telegram',
       langSwitch: 'Язык',
+    },
+    venues: {
+      eyebrow: 'Покрытие площадок',
+      headline: 'Один движок. Все площадки.',
+      description:
+        'Движок не зависит от площадки — любая платформа со стаканом заявок или фидом позиций подключается через один адаптер. Три площадки уже работают в продакшене; остальная вселенная рынков предсказаний — план, управляемый адаптерами. У каждой площадки свой отдельный репозиторий бота.',
+      statusLive: 'Активна',
+      statusRoadmap: 'В плане',
+      groupLive: '🟢 Активны сегодня',
+      groupTraditional: 'Традиционные / регулируемые — план',
+      groupCrypto: 'Крипто / децентрализованные — план',
+      cardCta: 'Открыть репозиторий →',
+      footnote: 'Хотите приоритет для площадки? Работа над адаптерами определяется спросом — если вы торгуете на платформе, которой ещё нет, она может подняться в очереди.',
+      footnoteCta: 'Запросить площадку →',
     },
     hero: {
       badge: '10 стратегий · один проверенный в бою движок',
