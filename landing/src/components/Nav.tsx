@@ -19,6 +19,7 @@ export function Nav() {
           <a href="#venues" className="hover:text-white transition-colors">{t.nav.venues}</a>
           <a href="#engine" className="hover:text-white transition-colors">{t.nav.engine}</a>
           <a href="#safety" className="hover:text-white transition-colors">{t.nav.safety}</a>
+          <a href="blog/" className="hover:text-white transition-colors">{t.nav.blog}</a>
           <a href="#contact" className="hover:text-white transition-colors">{t.nav.contact}</a>
         </div>
 

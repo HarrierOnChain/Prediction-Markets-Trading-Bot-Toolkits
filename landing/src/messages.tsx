@@ -70,6 +70,7 @@ export interface Messages {
     venues: string;
     engine: string;
     safety: string;
+    blog: string;
     contact: string;
     github: string;
     telegram: string;
@@ -174,6 +175,7 @@ const messages: Record<Lang, Messages> = {
       venues: 'Venues',
       engine: 'Engine',
       safety: 'Safety',
+      blog: 'Blog',
       contact: 'Contact',
       github: 'GitHub',
       telegram: 'Telegram',
@@ -497,6 +499,7 @@ const messages: Record<Lang, Messages> = {
       venues: '平台',
       engine: '引擎',
       safety: '安全',
+      blog: '博客',
       contact: '联系',
       github: 'GitHub',
       telegram: 'Telegram',
@@ -818,6 +821,7 @@ const messages: Record<Lang, Messages> = {
       venues: 'Площадки',
       engine: 'Движок',
       safety: 'Безопасность',
+      blog: 'Блог',
       contact: 'Контакты',
       github: 'GitHub',
       telegram: 'Telegram',

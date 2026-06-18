@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Making on Prediction Markets: How to Earn the Spread Instead of Betting the Outcome</title>
+<meta name="description" content="A practical look at automated market making on Polymarket and Kalshi — quoting both sides, earning the spread on every fill, and managing inventory risk with a bot.">
+<meta name="keywords" content="prediction market making bot, polymarket market making, kalshi market maker, market making bot, automated market making">
+<link rel="canonical" href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/prediction-market-making-bot-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Market Making on Prediction Markets: How to Earn the Spread Instead of Betting the Outcome">
+<meta property="og:description" content="A practical look at automated market making on Polymarket and Kalshi — quoting both sides, earning the spread on every fill, and managing inventory risk with a bot.">
+<meta property="og:url" content="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/prediction-market-making-bot-guide.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--surface:#13131a;--border:#23232e;--text:#e4e4e7;--muted:#a1a1aa;--dim:#71717a;--accent:#a855f7;--accent2:#ec4899}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.7;font-size:17px}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+header.site{border-bottom:1px solid var(--border);background:rgba(10,10,15,.8);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#fff}
+.brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:600;font-size:14px}
+.btn:hover{text-decoration:none;opacity:.92}
+article{padding:48px 0 24px}
+article h1{font-size:2.1rem;line-height:1.2;letter-spacing:-.02em;margin:0 0 12px;color:#fff}
+article h2{font-size:1.5rem;margin:2.2rem 0 .8rem;color:#fff;letter-spacing:-.01em}
+article h3{font-size:1.2rem;margin:1.8rem 0 .6rem;color:#fff}
+article p{margin:1rem 0;color:var(--text)}
+article ul,article ol{padding-left:1.4rem}article li{margin:.4rem 0}
+article strong{color:#fff}
+article code{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:.1em .4em;font-size:.88em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+article pre{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;overflow:auto}
+article pre code{background:none;border:0;padding:0}
+article hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+article blockquote{border-left:3px solid var(--accent);margin:1rem 0;padding:.2rem 0 .2rem 1rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:12px}
+.lede{color:var(--muted);font-size:1.05rem;margin-bottom:8px}
+footer.site{border-top:1px solid var(--border);margin-top:40px;padding:32px 0;color:var(--dim);font-size:.9rem}
+footer.site a{color:var(--muted)}
+.cards{display:grid;gap:16px;padding:32px 0}
+.card{display:block;border:1px solid var(--border);border-radius:12px;padding:22px;background:var(--surface);transition:border-color .15s}
+.card:hover{border-color:var(--accent);text-decoration:none}
+.card h2{margin:0 0 8px;font-size:1.25rem;color:#fff}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.backlink{color:var(--dim);font-size:.9rem;display:inline-block;margin-top:8px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Market Making on Prediction Markets: How to Earn the Spread Instead of Betting the Outcome","description":"A practical look at automated market making on Polymarket and Kalshi — quoting both sides, earning the spread on every fill, and managing inventory risk with a bot.","keywords":"prediction market making bot, polymarket market making, kalshi market maker, market making bot, automated market making","mainEntityOfPage":"https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/prediction-market-making-bot-guide.html","author":{"@type":"Organization","name":"HarrierOnChain"},"publisher":{"@type":"Organization","name":"Prediction Market Toolkits"}}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/"><span class="logo">P</span><span>Prediction Market Toolkits</span></a>
+  <a class="btn" href="https://t.me/HarrierOnChain" target="_blank" rel="noreferrer">Telegram</a>
+</div></header>
+<div class="wrap"><article><h1>Market Making on Prediction Markets: Be the House, Not the Gambler</h1>
+<p>Every other strategy on a prediction market is trying to predict something. Market making isn&#39;t. A market maker quotes <strong>both sides</strong> of a contract — a bid and an ask — and earns the spread between them on every pair of fills. Done right, it&#39;s direction-agnostic income that scales with volume instead of luck.</p>
+<p>On illiquid prediction markets, this edge is unusually wide. Many contracts have thin order books and no dedicated maker, so the spread between bid and ask is large and persistent. Step in as the maker and you&#39;re collecting that spread that nobody else is competing for.</p>
+<h2>The core mechanic</h2>
+<ol>
+<li><strong>Quote two-sided.</strong> Place a resting bid below mid and a resting ask above mid on a market you want to make.</li>
+<li><strong>Earn the spread.</strong> When someone takes your bid and later someone takes your ask (or vice versa), you&#39;ve bought low and sold high on the same contract. The difference is your profit — and you never took a directional view.</li>
+<li><strong>Requote continuously.</strong> As the market moves, cancel and replace your quotes to stay around mid. This is constant, mechanical order management — exactly what a bot is for.</li>
+</ol>
+<p>The income doesn&#39;t come from being right about the outcome. It comes from being <em>present</em> on both sides, repeatedly, while collecting the spread.</p>
+<h2>The risk: inventory</h2>
+<p>Market making has one real enemy — <strong>inventory risk</strong>. If the market trends hard in one direction, you keep getting filled on one side and accumulate a lopsided position. Now you&#39;re directional whether you wanted to be or not, and if the move continues, the inventory loss can swamp the spread you earned.</p>
+<p>This is why a serious market-making bot manages <strong>inventory skew</strong>:</p>
+<ul>
+<li>As you accumulate a long position, the bot <strong>skews quotes</strong> — lowering both bid and ask — to encourage selling and discourage further buying, pulling inventory back toward neutral.</li>
+<li><strong>Position limits</strong> cap how lopsided you&#39;re allowed to get before the bot stops adding to one side.</li>
+<li>The shared <strong>risk layer</strong> still applies: depth checks before quoting, a circuit breaker if fills cascade abnormally, and a trade-size floor.</li>
+</ul>
+<p>Get inventory management right and market making is one of the steadiest edges available. Get it wrong and a single trending market erases weeks of spread income.</p>
+<h2>Why it has to be automated</h2>
+<p>Market making is fundamentally a latency-and-uptime game. Your quotes have to update faster than the market moves, your cancels have to land before stale quotes get picked off, and you need to be quoting 24/7 to capture volume whenever it shows up. That&#39;s GTD order management, automatic cancel-and-requote, and inventory-aware skew — running continuously. No human does this competitively by hand.</p>
+<h2>Getting started</h2>
+<p>Market making is one of ten strategies in the open-source <a href="https://github.com/HarrierOnChain/Prediction-Markets-Trading-Bot-Toolkits">Prediction Market Toolkits</a> — two-sided GTD quoting with inventory skew, running on Polymarket and Kalshi on a shared Rust engine. Setup details for each venue live in the dedicated <a href="https://github.com/HarrierOnChain/Polymarket">Polymarket</a> and <a href="https://github.com/HarrierOnChain/Kalshi">Kalshi</a> repos. Start in dry-run, watch how your inventory behaves on a real book before committing capital, and scale from there.</p>
+<h2>Disclaimer</h2>
+<p>Trading prediction markets involves real financial risk. Market making carries inventory risk that can exceed earned spread in trending markets, and nothing here is financial advice. Software is provided as-is without warranty. Always test in dry-run before deploying real capital, and comply with each venue&#39;s terms of service and your local regulations.</p>
+</article></div>
+<footer class="site"><div class="wrap">
+  <p>Built on the <a href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/">Prediction Market Toolkits</a> engine — Polymarket · Kalshi · Limitless and 20+ venues.
+  Questions or access: <a href="https://t.me/HarrierOnChain" target="_blank" rel="noreferrer">@HarrierOnChain</a>.</p>
+  <p><a href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/">← All articles</a></p>
+</div></footer>
+</body>
+</html>

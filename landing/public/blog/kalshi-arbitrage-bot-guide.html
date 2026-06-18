@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalshi Arbitrage Bots: How Cross-Market Spreads Between Kalshi and Polymarket Work</title>
+<meta name="description" content="The same event often prices differently on Kalshi and Polymarket. Here's how a cross-market arbitrage bot locks the spread with hedged legs — and what it takes to execute it profitably.">
+<meta name="keywords" content="kalshi trading bot, kalshi arbitrage, polymarket kalshi arbitrage, cross market arbitrage prediction markets, kalshi bot">
+<link rel="canonical" href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/kalshi-arbitrage-bot-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kalshi Arbitrage Bots: How Cross-Market Spreads Between Kalshi and Polymarket Work">
+<meta property="og:description" content="The same event often prices differently on Kalshi and Polymarket. Here's how a cross-market arbitrage bot locks the spread with hedged legs — and what it takes to execute it profitably.">
+<meta property="og:url" content="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/kalshi-arbitrage-bot-guide.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--surface:#13131a;--border:#23232e;--text:#e4e4e7;--muted:#a1a1aa;--dim:#71717a;--accent:#a855f7;--accent2:#ec4899}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.7;font-size:17px}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+header.site{border-bottom:1px solid var(--border);background:rgba(10,10,15,.8);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#fff}
+.brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:600;font-size:14px}
+.btn:hover{text-decoration:none;opacity:.92}
+article{padding:48px 0 24px}
+article h1{font-size:2.1rem;line-height:1.2;letter-spacing:-.02em;margin:0 0 12px;color:#fff}
+article h2{font-size:1.5rem;margin:2.2rem 0 .8rem;color:#fff;letter-spacing:-.01em}
+article h3{font-size:1.2rem;margin:1.8rem 0 .6rem;color:#fff}
+article p{margin:1rem 0;color:var(--text)}
+article ul,article ol{padding-left:1.4rem}article li{margin:.4rem 0}
+article strong{color:#fff}
+article code{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:.1em .4em;font-size:.88em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+article pre{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;overflow:auto}
+article pre code{background:none;border:0;padding:0}
+article hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+article blockquote{border-left:3px solid var(--accent);margin:1rem 0;padding:.2rem 0 .2rem 1rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:12px}
+.lede{color:var(--muted);font-size:1.05rem;margin-bottom:8px}
+footer.site{border-top:1px solid var(--border);margin-top:40px;padding:32px 0;color:var(--dim);font-size:.9rem}
+footer.site a{color:var(--muted)}
+.cards{display:grid;gap:16px;padding:32px 0}
+.card{display:block;border:1px solid var(--border);border-radius:12px;padding:22px;background:var(--surface);transition:border-color .15s}
+.card:hover{border-color:var(--accent);text-decoration:none}
+.card h2{margin:0 0 8px;font-size:1.25rem;color:#fff}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.backlink{color:var(--dim);font-size:.9rem;display:inline-block;margin-top:8px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Kalshi Arbitrage Bots: How Cross-Market Spreads Between Kalshi and Polymarket Work","description":"The same event often prices differently on Kalshi and Polymarket. Here's how a cross-market arbitrage bot locks the spread with hedged legs — and what it takes to execute it profitably.","keywords":"kalshi trading bot, kalshi arbitrage, polymarket kalshi arbitrage, cross market arbitrage prediction markets, kalshi bot","mainEntityOfPage":"https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/kalshi-arbitrage-bot-guide.html","author":{"@type":"Organization","name":"HarrierOnChain"},"publisher":{"@type":"Organization","name":"Prediction Market Toolkits"}}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/"><span class="logo">P</span><span>Prediction Market Toolkits</span></a>
+  <a class="btn" href="https://t.me/HarrierOnChain" target="_blank" rel="noreferrer">Telegram</a>
+</div></header>
+<div class="wrap"><article><h1>Kalshi Arbitrage Bots: Locking the Spread, Not the Direction</h1>
+<p>Kalshi is the CFTC-regulated event exchange that brought prediction markets into the US mainstream. Polymarket is the on-chain heavyweight. They list many of the same events — elections, economic prints, sports, crypto price levels — and because they have <strong>different users, different liquidity, and different fee structures</strong>, they frequently price the same outcome differently.</p>
+<p>That price gap is a <strong>Kalshi arbitrage</strong> opportunity, and it&#39;s one of the cleanest edges in the entire prediction-market space because you&#39;re not betting on the outcome at all. You&#39;re betting that two prices for the same thing should converge.</p>
+<h2>How cross-market arbitrage works</h2>
+<p>Say a contract resolves YES/NO on some event. Kalshi quotes YES at 58¢. Polymarket quotes the equivalent at 53¢. If you can buy the cheap side and sell (or take the opposing side of) the expensive one, you&#39;ve locked a spread that pays out regardless of how the event actually resolves.</p>
+<p>The mechanics:</p>
+<ol>
+<li><strong>Monitor the same market on both venues</strong> in real time.</li>
+<li>When the price delta exceeds a configurable threshold (say ≥ 0.8¢ after fees), fire <strong>both legs</strong> — buy the underpriced side, hedge the overpriced side.</li>
+<li>Both legs are hedged, so your P&amp;L is the spread itself. The event outcome is irrelevant to your return.</li>
+</ol>
+<p>This is direction-agnostic income. You&#39;re harvesting market inefficiency, not making predictions.</p>
+<h2>Why you can&#39;t do this by hand</h2>
+<p>Cross-market spreads are small and they close fast — often within seconds of appearing, because you&#39;re not the only one watching. Doing this manually means:</p>
+<ul>
+<li>Watching two order books simultaneously, all day.</li>
+<li>Calculating fee-adjusted edge in your head.</li>
+<li>Placing two orders on two venues before the gap closes.</li>
+</ul>
+<p>You will lose to anyone running a bot. A <strong>Kalshi arbitrage bot</strong> monitors both books continuously, computes the fee-adjusted edge instantly, and executes both hedged legs with low-latency order types the moment the threshold is hit. Sub-100ms execution isn&#39;t a nice-to-have here — it&#39;s the entire viability of the strategy.</p>
+<h2>What separates a profitable bot from a losing one</h2>
+<ul>
+<li><strong>Fee-aware thresholds.</strong> The edge has to clear <em>both</em> venues&#39; fees and slippage. A naive bot that triggers on gross spread bleeds out on fees.</li>
+<li><strong>Depth validation.</strong> A 5¢ gap on a market with $20 of depth is a mirage. The bot must validate liquidity on both sides before committing — otherwise one leg fills and the other doesn&#39;t, and you&#39;re suddenly directional.</li>
+<li><strong>Atomic-ish execution.</strong> The longer the gap between leg one and leg two, the more leg risk you carry. Fast, concurrent execution minimizes the window where you&#39;re exposed.</li>
+<li><strong>A circuit breaker.</strong> If something goes wrong — a venue API hiccups, a leg fails — you want execution to halt automatically rather than pile into a one-sided position.</li>
+</ul>
+<h2>Getting started</h2>
+<p>The open-source <a href="https://github.com/HarrierOnChain/Prediction-Markets-Trading-Bot-Toolkits">Prediction Market Toolkits</a> ships cross-market arbitrage as one of ten strategies on a shared Rust engine, with hedged legs across Polymarket and Kalshi and full per-trade P&amp;L logging. The <a href="https://github.com/HarrierOnChain/Kalshi">Kalshi adapter repo</a> covers the venue-specific setup. Start in dry-run, confirm the spreads your config catches are real and fee-positive, then size up.</p>
+<p>If resolution-based edges interest you too, the related strategy is <a href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/">resolution sniping</a> — high win-rate plays unique to prediction markets.</p>
+<h2>Disclaimer</h2>
+<p>Trading prediction markets involves real financial risk. Automated trading software is provided as-is, without warranty or guarantee of outcome, and nothing here is financial advice. Arbitrage carries execution and leg risk. Always test in dry-run before deploying real capital, and comply with each venue&#39;s terms of service and the regulations in your jurisdiction.</p>
+</article></div>
+<footer class="site"><div class="wrap">
+  <p>Built on the <a href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/">Prediction Market Toolkits</a> engine — Polymarket · Kalshi · Limitless and 20+ venues.
+  Questions or access: <a href="https://t.me/HarrierOnChain" target="_blank" rel="noreferrer">@HarrierOnChain</a>.</p>
+  <p><a href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/">← All articles</a></p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copy Trading on Polymarket: How to Mirror Winning Wallets Automatically</title>
+<meta name="description" content="Polymarket is fully on-chain, so every profitable wallet's positions are public. Here's how a copy-trading bot mirrors proven wallets in near-real time — with sizing and risk controls.">
+<meta name="keywords" content="polymarket copy trading, copy trading bot, mirror trading polymarket, polymarket wallet tracker, onchain copy trading">
+<link rel="canonical" href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/polymarket-copy-trading-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Copy Trading on Polymarket: How to Mirror Winning Wallets Automatically">
+<meta property="og:description" content="Polymarket is fully on-chain, so every profitable wallet's positions are public. Here's how a copy-trading bot mirrors proven wallets in near-real time — with sizing and risk controls.">
+<meta property="og:url" content="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/polymarket-copy-trading-guide.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0f;--surface:#13131a;--border:#23232e;--text:#e4e4e7;--muted:#a1a1aa;--dim:#71717a;--accent:#a855f7;--accent2:#ec4899}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.7;font-size:17px}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+header.site{border-bottom:1px solid var(--border);background:rgba(10,10,15,.8);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:#fff}
+.brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:600;font-size:14px}
+.btn:hover{text-decoration:none;opacity:.92}
+article{padding:48px 0 24px}
+article h1{font-size:2.1rem;line-height:1.2;letter-spacing:-.02em;margin:0 0 12px;color:#fff}
+article h2{font-size:1.5rem;margin:2.2rem 0 .8rem;color:#fff;letter-spacing:-.01em}
+article h3{font-size:1.2rem;margin:1.8rem 0 .6rem;color:#fff}
+article p{margin:1rem 0;color:var(--text)}
+article ul,article ol{padding-left:1.4rem}article li{margin:.4rem 0}
+article strong{color:#fff}
+article code{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:.1em .4em;font-size:.88em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+article pre{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;overflow:auto}
+article pre code{background:none;border:0;padding:0}
+article hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+article blockquote{border-left:3px solid var(--accent);margin:1rem 0;padding:.2rem 0 .2rem 1rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:12px}
+.lede{color:var(--muted);font-size:1.05rem;margin-bottom:8px}
+footer.site{border-top:1px solid var(--border);margin-top:40px;padding:32px 0;color:var(--dim);font-size:.9rem}
+footer.site a{color:var(--muted)}
+.cards{display:grid;gap:16px;padding:32px 0}
+.card{display:block;border:1px solid var(--border);border-radius:12px;padding:22px;background:var(--surface);transition:border-color .15s}
+.card:hover{border-color:var(--accent);text-decoration:none}
+.card h2{margin:0 0 8px;font-size:1.25rem;color:#fff}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.backlink{color:var(--dim);font-size:.9rem;display:inline-block;margin-top:8px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Copy Trading on Polymarket: How to Mirror Winning Wallets Automatically","description":"Polymarket is fully on-chain, so every profitable wallet's positions are public. Here's how a copy-trading bot mirrors proven wallets in near-real time — with sizing and risk controls.","keywords":"polymarket copy trading, copy trading bot, mirror trading polymarket, polymarket wallet tracker, onchain copy trading","mainEntityOfPage":"https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/polymarket-copy-trading-guide.html","author":{"@type":"Organization","name":"HarrierOnChain"},"publisher":{"@type":"Organization","name":"Prediction Market Toolkits"}}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/"><span class="logo">P</span><span>Prediction Market Toolkits</span></a>
+  <a class="btn" href="https://t.me/HarrierOnChain" target="_blank" rel="noreferrer">Telegram</a>
+</div></header>
+<div class="wrap"><article><h1>Copy Trading on Polymarket: Outsource Alpha to Proven Wallets</h1>
+<p>Polymarket has a property most trading venues don&#39;t: it&#39;s <strong>fully on-chain</strong>. Every position, every fill, every wallet&#39;s running P&amp;L is public on Polygon. That means the wallets that are consistently profitable aren&#39;t a secret — you can find them, and you can mirror them.</p>
+<p>That&#39;s the entire premise of <strong>Polymarket copy trading</strong>: instead of researching markets yourself, you track wallets that have already proven they have an edge, and you copy their BUY/SELL actions automatically with your own sizing.</p>
+<h2>Why copy trading works especially well here</h2>
+<p>On a centralized exchange, copy trading depends on someone <em>opting in</em> to publish their trades, usually with a delay and a marketing incentive to look better than they are. On Polymarket, the data is the chain. There&#39;s no opt-in, no survivorship-biased leaderboard, no spin — you can audit a wallet&#39;s real history before you decide to follow it.</p>
+<p>That makes wallet selection a genuine, verifiable edge: you&#39;re choosing demonstrated performance, not a curated highlight reel.</p>
+<h2>How a copy-trading bot works</h2>
+<ol>
+<li><strong>Track one or more target wallets.</strong> You pick the wallets to mirror based on their on-chain track record.</li>
+<li><strong>Detect their actions in near-real time.</strong> The bot watches for the target&#39;s BUY/SELL activity as it lands.</li>
+<li><strong>Mirror with your own sizing.</strong> Instead of copying their dollar amounts, you copy their <em>decisions</em> at a configurable percentage — e.g. 10% of every position they take — so the strategy scales to your bankroll.</li>
+<li><strong>Apply your own risk limits.</strong> A circuit breaker and depth checks sit between the signal and your order, so a target&#39;s bad day or a thin market doesn&#39;t wreck you.</li>
+</ol>
+<p>Zero research, zero chart-watching, zero second-guessing. The bot copies; you compound.</p>
+<h2>The things that actually matter</h2>
+<ul>
+<li><strong>Wallet selection is everything.</strong> Copy a wallet that got lucky and you inherit variance, not edge. Audit the on-chain history — consistency over time beats one big score.</li>
+<li><strong>Speed of mirroring.</strong> The later you copy, the worse your entry price versus the wallet you&#39;re following. Near-real-time detection keeps your fills close to theirs.</li>
+<li><strong>Sizing as a percentage, not a copy.</strong> Mirroring raw dollar amounts blows up small accounts and underweights large ones. Copy the decision at <em>your</em> size.</li>
+<li><strong>Multi-wallet diversification.</strong> Following several proven wallets smooths the variance of any single one having a bad week.</li>
+</ul>
+<h2>Getting started</h2>
+<p>Copy trading is one of ten strategies in the open-source <a href="https://github.com/HarrierOnChain/Prediction-Markets-Trading-Bot-Toolkits">Prediction Market Toolkits</a> — multi-wallet tracking, configurable copy percentage, FAK/GTD order types, and the shared circuit-breaker + depth-guard risk layer. The <a href="https://github.com/HarrierOnChain/Polymarket">Polymarket adapter repo</a> has the venue-specific setup. Start in dry-run with <code>enable_trading: false</code>, confirm the bot is mirroring the wallets you intend, then go live at a small copy percentage until you trust the signal.</p>
+<p>For a faster, lower-level edge on the same chain, see <a href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/">on-chain whale signals</a> — reading Polygon block data 3–30 seconds ahead of the public positions API.</p>
+<h2>Disclaimer</h2>
+<p>Trading prediction markets involves real financial risk. Copying a wallet copies its losses as well as its wins, and past on-chain performance does not guarantee future results. Nothing here is financial advice. Software is provided as-is without warranty. Always test in dry-run, keep copy percentage low until proven, and comply with each venue&#39;s terms and your local regulations.</p>
+</article></div>
+<footer class="site"><div class="wrap">
+  <p>Built on the <a href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/">Prediction Market Toolkits</a> engine — Polymarket · Kalshi · Limitless and 20+ venues.
+  Questions or access: <a href="https://t.me/HarrierOnChain" target="_blank" rel="noreferrer">@HarrierOnChain</a>.</p>
+  <p><a href="https://harrieronchain.github.io/Prediction-Markets-Trading-Bot-Toolkits/blog/">← All articles</a></p>
+</div></footer>
+</body>
+</html>
