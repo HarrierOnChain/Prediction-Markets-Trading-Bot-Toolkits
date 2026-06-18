@@ -52,7 +52,7 @@ pub async fn run(cfg: AppConfig) -> Result<()> {
     result
 }
 
-async fn ui_loop<B: Backend>(term: &mut Terminal<B>, cfg: AppConfig) -> Result<()> {
+async fn ui_loop<B: Backend + io::Write>(term: &mut Terminal<B>, cfg: AppConfig) -> Result<()> {
     let mut state = ListState::default();
     state.select(Some(0));
 
