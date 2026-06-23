@@ -37,7 +37,7 @@
 | 1 | 🎯 **Копи-трейдинг** | Копируйте кошельки, уже доказавшие наличие альфы | Мультикошелёк · FAK/GTD · предохранитель |
 | 2 | ⚡ **BTC арбитраж 5м / 15м / 1ч** | Скорость на коротких BTC Up/Down | ~42 мс end-to-end · FAK |
 | 3 | 💰 **Межрыночный арбитраж** | Фиксируйте спред, а не направление | Polymarket ↔ Kalshi · хеджированные ноги |
-| 4 | 🎯 **Охота за направлением** | Задайте преимущество один раз — движок работает 24/7 | 5м / 15м · авто TP + SL |
+| 4 | 🎯 **Направленный арбитраж** | Арб-база (Up + Down < $1), затем перекос в сторону большего эджа | Хеджированная база · только лимит |
 | 5 | 📈 **Сбор спреда** | Тысяча выигрышей по 0,5¢ складываются в одно число | Захват бид-аск · P&L по сделке |
 | 6 | 🏆 **Спортивное исполнение** | Клик. Исполнено. Готово — менее 50 мс | NBA / NFL / футбол · &lt;50 мс FAK |
 | 7 | 🎯 **Снайпер разрешения** | Околоуверенность 95¢ → гарантированная выплата $1.00 | Скан уверенности · удержание до разрешения |
@@ -60,15 +60,15 @@
 | Площадка | Тип | Запущенные стратегии |
 |---|---|---|
 | [**Polymarket**](https://github.com/HarrierOnChain/Polymarket) | Децентрализованная (Polygon / USDC) | Все 10 — полное покрытие |
-| [**Kalshi**](https://github.com/HarrierOnChain/Kalshi) | Регулируется CFTC (США) | Межрыночный арбитраж · Снайпер разрешения · OBI · Маркет-мейкинг · Направление · Спред · Спорт |
+| [**Kalshi**](https://github.com/HarrierOnChain/Kalshi) | Регулируется CFTC (США) | Межрыночный арбитраж · Снайпер разрешения · OBI · Маркет-мейкинг · Направленный арбитраж · Спред · Спорт |
 | [**Limitless**](https://github.com/HarrierOnChain/Limitless-Exchange) | Ончейн-стакан заявок | Снайпер разрешения · OBI · Сбор спреда |
 
 ### Традиционные / регулируемые — план
 
 | Площадка | Тип | Статус | Наиболее подходящие стратегии |
 |---|---|---|---|
-| [**Robinhood Predictions**](https://github.com/HarrierOnChain/Robinhood-Predictions) | Брокерская интеграция | ⚪ План | Направление · Спорт |
-| [**Crypto.com Predictions**](https://github.com/HarrierOnChain/Crypto.com-Predictions) | Крипто-интеграция | ⚪ План | BTC арбитраж · Направление |
+| [**Robinhood Predictions**](https://github.com/HarrierOnChain/Robinhood-Predictions) | Брокерская интеграция | ⚪ План | Направленный арбитраж · Спорт |
+| [**Crypto.com Predictions**](https://github.com/HarrierOnChain/Crypto.com-Predictions) | Крипто-интеграция | ⚪ План | BTC арбитраж · Направленный арбитраж |
 | [**OG.com**](https://github.com/HarrierOnChain/OG.com) | Социальная / мультиисход | ⚪ План | Спорт · OBI · Маркет-мейкинг |
 | [**DraftKings Predictions**](https://github.com/HarrierOnChain/DraftKings-Predictions) | Спорт | ⚪ План | Спортивное исполнение |
 | [**FanDuel Predicts**](https://github.com/HarrierOnChain/FanDuel-Predicts) | Спорт | ⚪ План | Спортивное исполнение |
@@ -82,13 +82,13 @@
 |---|---|---|---|
 | [**Drift BET**](https://github.com/HarrierOnChain/Drift-BET) | Solana | ⚪ План | BTC арбитраж · OBI · Маркет-мейкинг · Сигнал китов |
 | [**Azuro**](https://github.com/HarrierOnChain/Azuro) | Децентрализованный протокол | ⚪ План | Спорт · OBI |
-| [**Hedgehog Markets**](https://github.com/HarrierOnChain/Hedgehog-Markets) | Solana / социальная | ⚪ План | Копи-трейдинг · Направление |
+| [**Hedgehog Markets**](https://github.com/HarrierOnChain/Hedgehog-Markets) | Solana / социальная | ⚪ План | Копи-трейдинг · Направленный арбитраж |
 | [**Augur**](https://github.com/HarrierOnChain/Augur) | Ethereum | ⚪ План | Снайпер разрешения · OBI |
 | [**Zeitgeist**](https://github.com/HarrierOnChain/Zeitgeist) | Polkadot | ⚪ План | OBI · Маркет-мейкинг |
-| [**Myriad Markets**](https://github.com/HarrierOnChain/Myriad-Markets) | Крипто | ⚪ План | OBI · Направление |
-| [**Projection Finance**](https://github.com/HarrierOnChain/Projection-Finance) | Волатильность / симуляции | ⚪ План | Направление · Спред |
+| [**Myriad Markets**](https://github.com/HarrierOnChain/Myriad-Markets) | Крипто | ⚪ План | OBI · Направленный арбитраж |
+| [**Projection Finance**](https://github.com/HarrierOnChain/Projection-Finance) | Волатильность / симуляции | ⚪ План | Направленный арбитраж · Спред |
 | [**Better Fan**](https://github.com/HarrierOnChain/Better-Fan) | Спорт / киберспорт | ⚪ План | Спортивное исполнение |
-| [**Manifold Markets**](https://github.com/HarrierOnChain/Manifold-Markets) | Игровые деньги | ⚪ План | Направление (бэктест / исследовательская песочница) |
+| [**Manifold Markets**](https://github.com/HarrierOnChain/Manifold-Markets) | Игровые деньги | ⚪ План | Направленный арбитраж (бэктест / исследовательская песочница) |
 
 > **Хотите приоритет для площадки?** Работа над адаптерами определяется спросом —
 > если вы торгуете на платформе, которой ещё нет, [напишите](https://t.me/HarrierOnChain),

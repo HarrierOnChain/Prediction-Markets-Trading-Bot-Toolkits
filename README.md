@@ -37,7 +37,7 @@ A complete suite of ten production-grade trading bots, each engineered around a 
 | 1 | 🎯 **Copy Trading** | Mirror wallets that already proved they have alpha | Multi-wallet · FAK/GTD · circuit breaker |
 | 2 | ⚡ **BTC 5m / 15m / 1hr Arbitrage** | Speed on short-window BTC Up/Down | ~42ms end-to-end · FAK |
 | 3 | 💰 **Cross-Market Arbitrage** | Lock the spread, not the direction | Polymarket ↔ Kalshi · hedged legs |
-| 4 | 🎯 **Direction Hunting** | Define the edge once — engine grinds 24/7 | 5m / 15m · auto TP + SL |
+| 4 | 🎯 **Directional Arbitrage** | Arb base (Up + Down < $1), then tilt toward the side with more edge | Hedged base · limit-only |
 | 5 | 📈 **Spread Farming** | A thousand 0.5¢ wins compound into one number | Bid-ask capture · per-trade P&L |
 | 6 | 🏆 **Sports Execution** | Click. Filled. Done — under 50ms | NBA / NFL / Soccer · &lt;50ms FAK |
 | 7 | 🎯 **Resolution Sniper** | 95¢ near-certainty → guaranteed $1.00 payout | Certainty scan · hold to resolution |
@@ -60,15 +60,15 @@ the rest of the prediction-market landscape is on the adapter-driven roadmap.
 | Venue | Type | Strategies running |
 |---|---|---|
 | [**Polymarket**](https://github.com/HarrierOnChain/Polymarket) | Decentralized (Polygon / USDC) | All 10 — full coverage |
-| [**Kalshi**](https://github.com/HarrierOnChain/Kalshi) | CFTC-regulated (US) | Cross-arb · Resolution Sniper · OBI · Market Making · Direction · Spread · Sports |
+| [**Kalshi**](https://github.com/HarrierOnChain/Kalshi) | CFTC-regulated (US) | Cross-arb · Resolution Sniper · OBI · Market Making · Directional Arb · Spread · Sports |
 | [**Limitless**](https://github.com/HarrierOnChain/Limitless-Exchange) | On-chain order book | Resolution Sniper · OBI · Spread Farming |
 
 ### Traditional / Regulated — roadmap
 
 | Venue | Type | Status | Best-fit strategies |
 |---|---|---|---|
-| [**Robinhood Predictions**](https://github.com/HarrierOnChain/Robinhood-Predictions) | Brokerage-integrated | ⚪ Roadmap | Direction · Sports |
-| [**Crypto.com Predictions**](https://github.com/HarrierOnChain/Crypto.com-Predictions) | Crypto-integrated | ⚪ Roadmap | BTC Arb · Direction |
+| [**Robinhood Predictions**](https://github.com/HarrierOnChain/Robinhood-Predictions) | Brokerage-integrated | ⚪ Roadmap | Directional Arb · Sports |
+| [**Crypto.com Predictions**](https://github.com/HarrierOnChain/Crypto.com-Predictions) | Crypto-integrated | ⚪ Roadmap | BTC Arb · Directional Arb |
 | [**OG.com**](https://github.com/HarrierOnChain/OG.com) | Social / multi-outcome | ⚪ Roadmap | Sports · OBI · Market Making |
 | [**DraftKings Predictions**](https://github.com/HarrierOnChain/DraftKings-Predictions) | Sports | ⚪ Roadmap | Sports Execution |
 | [**FanDuel Predicts**](https://github.com/HarrierOnChain/FanDuel-Predicts) | Sports | ⚪ Roadmap | Sports Execution |
@@ -82,13 +82,13 @@ the rest of the prediction-market landscape is on the adapter-driven roadmap.
 |---|---|---|---|
 | [**Drift BET**](https://github.com/HarrierOnChain/Drift-BET) | Solana | ⚪ Roadmap | BTC Arb · OBI · Market Making · Whale Signal |
 | [**Azuro**](https://github.com/HarrierOnChain/Azuro) | Decentralized protocol | ⚪ Roadmap | Sports · OBI |
-| [**Hedgehog Markets**](https://github.com/HarrierOnChain/Hedgehog-Markets) | Solana / social | ⚪ Roadmap | Copy Trading · Direction |
+| [**Hedgehog Markets**](https://github.com/HarrierOnChain/Hedgehog-Markets) | Solana / social | ⚪ Roadmap | Copy Trading · Directional Arb |
 | [**Augur**](https://github.com/HarrierOnChain/Augur) | Ethereum | ⚪ Roadmap | Resolution Sniper · OBI |
 | [**Zeitgeist**](https://github.com/HarrierOnChain/Zeitgeist) | Polkadot | ⚪ Roadmap | OBI · Market Making |
-| [**Myriad Markets**](https://github.com/HarrierOnChain/Myriad-Markets) | Crypto | ⚪ Roadmap | OBI · Direction |
-| [**Projection Finance**](https://github.com/HarrierOnChain/Projection-Finance) | Volatility / sims | ⚪ Roadmap | Direction · Spread |
+| [**Myriad Markets**](https://github.com/HarrierOnChain/Myriad-Markets) | Crypto | ⚪ Roadmap | OBI · Directional Arb |
+| [**Projection Finance**](https://github.com/HarrierOnChain/Projection-Finance) | Volatility / sims | ⚪ Roadmap | Directional Arb · Spread |
 | [**Better Fan**](https://github.com/HarrierOnChain/Better-Fan) | Sports / esports | ⚪ Roadmap | Sports Execution |
-| [**Manifold Markets**](https://github.com/HarrierOnChain/Manifold-Markets) | Play-money | ⚪ Roadmap | Direction (backtest / research sandbox) |
+| [**Manifold Markets**](https://github.com/HarrierOnChain/Manifold-Markets) | Play-money | ⚪ Roadmap | Directional Arb (backtest / research sandbox) |
 
 > **Want a venue prioritized?** Adapter work is demand-driven — if you trade a
 > platform not yet live, [reach out](https://t.me/HarrierOnChain) and it can move
