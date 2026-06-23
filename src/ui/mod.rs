@@ -28,6 +28,7 @@ const BOTS: &[BotKind] = &[
     BotKind::CopyTrading,
     BotKind::BtcArb,
     BotKind::CrossArb,
+    BotKind::DirectionalArb,
     BotKind::DirectionHunting,
     BotKind::SpreadFarming,
     BotKind::Sports,
@@ -199,6 +200,10 @@ fn bot_detail(kind: BotKind) -> Vec<Line<'static>> {
         BotKind::CrossArb => (
             "🚧 In development",
             "Polymarket ↔ Kalshi cross-venue arbitrage with hedged execution.",
+        ),
+        BotKind::DirectionalArb => (
+            "🚧 In development",
+            "Arbitrage base (Up + Down < $1) tilted toward the side with model edge; smaller side hedges. Limit orders only.",
         ),
         BotKind::DirectionHunting => (
             "🚧 In development",
