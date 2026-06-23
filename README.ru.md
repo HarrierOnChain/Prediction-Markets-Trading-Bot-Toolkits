@@ -3,7 +3,7 @@
 <div align="center">
 
 <img width="820" alt="Polymarket Toolkits TUI" src="https://github.com/user-attachments/assets/b6c51ba1-14c6-4582-858c-e9441516dd1d" />
-<img width="820" alt="image" src="https://github.com/user-attachments/assets/66d9cb72-e14a-414f-93e5-600fb1d3f49f" />
+<img width="820" alt="Панель Prediction Market Toolkits" src="https://github.com/user-attachments/assets/2ae5783d-be8e-458d-8da4-1ff82aada3db" />
 
 ### Торговая инфраструктура для рынков предсказаний, не зависящая от площадки — любой рынок со стаканом заявок
 
