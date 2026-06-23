@@ -8,7 +8,6 @@
 pub mod arbitrage;
 pub mod copy_trading;
 pub mod cross_market_arb;
-pub mod direction_hunting;
 pub mod directional_arb;
 pub mod market_maker;
 pub mod orderbook_imbalance;
@@ -26,7 +25,6 @@ pub enum BotKind {
     BtcArb,
     CrossArb,
     DirectionalArb,
-    DirectionHunting,
     SpreadFarming,
     Sports,
     ResolutionSniper,
@@ -42,7 +40,6 @@ impl BotKind {
             BotKind::BtcArb => "BTC 5m / 15m / 1hr Arbitrage",
             BotKind::CrossArb => "Polymarket ↔ Kalshi Cross-Venue Arb",
             BotKind::DirectionalArb => "Directional Arbitrage",
-            BotKind::DirectionHunting => "Direction Hunting",
             BotKind::SpreadFarming => "Spread Farming",
             BotKind::Sports => "Sports Betting Execution",
             BotKind::ResolutionSniper => "Resolution Sniper",
@@ -63,7 +60,6 @@ pub async fn run(kind: BotKind, cfg: AppConfig) -> Result<()> {
         BotKind::BtcArb => arbitrage::run(cfg).await,
         BotKind::CrossArb => cross_market_arb::run(cfg).await,
         BotKind::DirectionalArb => directional_arb::run(cfg).await,
-        BotKind::DirectionHunting => direction_hunting::run(cfg).await,
         BotKind::SpreadFarming => spread_farming::run(cfg).await,
         BotKind::Sports => sports_execution::run(cfg).await,
         BotKind::ResolutionSniper => resolution_sniper::run(cfg).await,

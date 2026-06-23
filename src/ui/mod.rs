@@ -29,7 +29,6 @@ const BOTS: &[BotKind] = &[
     BotKind::BtcArb,
     BotKind::CrossArb,
     BotKind::DirectionalArb,
-    BotKind::DirectionHunting,
     BotKind::SpreadFarming,
     BotKind::Sports,
     BotKind::ResolutionSniper,
@@ -204,10 +203,6 @@ fn bot_detail(kind: BotKind) -> Vec<Line<'static>> {
         BotKind::DirectionalArb => (
             "🚧 In development",
             "Arbitrage base (Up + Down < $1) tilted toward the side with model edge; smaller side hedges. Limit orders only.",
-        ),
-        BotKind::DirectionHunting => (
-            "🚧 In development",
-            "Configurable momentum/flow scanner with auto TP/SL.",
         ),
         BotKind::SpreadFarming => (
             "🚧 In development",
