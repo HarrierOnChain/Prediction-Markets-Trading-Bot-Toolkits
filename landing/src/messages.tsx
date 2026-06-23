@@ -279,16 +279,16 @@ const messages: Record<Lang, Messages> = {
             { label: 'Logging', value: 'Full P&L tracking' },
           ],
         },
-        'direction-hunting': {
-          title: 'Direction Hunting',
-          tagline: 'Short-window momentum and flow setups.',
-          hook: 'Define the edge once — let the engine grind 24/7.',
+        'directional-arb': {
+          title: 'Directional Arbitrage',
+          tagline: 'Arbitrage base with a directional tilt.',
+          hook: 'Start from arbitrage, then lean into the side with more edge.',
           description:
-            'Entries, TP, and SL are fully automated. Continuously scans symbols and time windows for setups matching your criteria, then enters and manages exits.',
+            'Buys both sides when Up + Down can be assembled for under $1, then sizes up the side the model rates undervalued — keeping an arbitrage floor while the net position goes directional. The smaller side works as a partial hedge.',
           specs: [
-            { label: 'Windows', value: '5m, 15m configurable' },
-            { label: 'Entry', value: 'Momentum / flow rules' },
-            { label: 'Exit', value: 'TP + SL, auto' },
+            { label: 'Entry', value: 'Up + Down < $1 basket' },
+            { label: 'Tilt', value: 'Up to 3:1 toward edge' },
+            { label: 'Orders', value: 'Limit-only' },
           ],
         },
         'spread-farming': {
@@ -603,16 +603,16 @@ const messages: Record<Lang, Messages> = {
             { label: '日志', value: '完整盈亏追踪' },
           ],
         },
-        'direction-hunting': {
-          title: '方向猎取',
-          tagline: '短窗口动量与单边流向机会。',
-          hook: '规则定义一次，引擎全天候执行。',
+        'directional-arb': {
+          title: '方向性套利',
+          tagline: '以套利为底仓，叠加方向性倾斜。',
+          hook: '从套利出发，再向更有优势的一侧倾斜。',
           description:
-            '入场、止盈、止损全自动。持续扫描多个标的与时间窗口，匹配你设定的入场条件后入场并管理出场。',
+            '当 Up + Down 能以低于 $1 组合时同时买入两侧，再对模型判定被低估的一侧加仓——保留套利底仓的同时让净头寸转为方向性。较小的一侧充当部分对冲。',
           specs: [
-            { label: '窗口', value: '5m、15m 可配置' },
-            { label: '入场', value: '动量 / 流向规则' },
-            { label: '出场', value: 'TP + SL 自动' },
+            { label: '入场', value: 'Up + Down < $1 组合' },
+            { label: '倾斜', value: '最高 3:1 偏向优势侧' },
+            { label: '订单', value: '仅限价单' },
           ],
         },
         'spread-farming': {
@@ -925,16 +925,16 @@ const messages: Record<Lang, Messages> = {
             { label: 'Логи', value: 'Полный учёт P&L' },
           ],
         },
-        'direction-hunting': {
-          title: 'Охота за направлением',
-          tagline: 'Краткосрочные сетапы по моментуму и потоку.',
-          hook: 'Задайте преимущество один раз — пусть движок работает 24/7.',
+        'directional-arb': {
+          title: 'Направленный арбитраж',
+          tagline: 'Арбитражная база с направленным перекосом.',
+          hook: 'Начните с арбитража, затем перекос в сторону большего эджа.',
           description:
-            'Входы, TP и SL полностью автоматизированы. Непрерывно сканирует символы и временные окна на сетапы по вашим критериям, затем входит и управляет выходами.',
+            'Покупает обе стороны, когда Up + Down собираются дешевле $1, затем наращивает сторону, которую модель считает недооценённой — сохраняя арбитражный пол, пока чистая позиция становится направленной. Меньшая сторона работает как частичный хедж.',
           specs: [
-            { label: 'Окна', value: '5м, 15м настраиваемо' },
-            { label: 'Вход', value: 'Правила моментума / потока' },
-            { label: 'Выход', value: 'TP + SL, авто' },
+            { label: 'Вход', value: 'Корзина Up + Down < $1' },
+            { label: 'Перекос', value: 'До 3:1 в сторону эджа' },
+            { label: 'Ордера', value: 'Только лимитные' },
           ],
         },
         'spread-farming': {
