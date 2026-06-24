@@ -11,11 +11,11 @@
 [![Rust CI](https://github.com/HarrierOnChain/Prediction-Markets-Trading-Bot-Toolkits/actions/workflows/rust.yml/badge.svg)](https://github.com/HarrierOnChain/Prediction-Markets-Trading-Bot-Toolkits/actions/workflows/rust.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Tokio](https://img.shields.io/badge/async-tokio-blue.svg?style=flat-square)](https://tokio.rs/)
-[![Live venues](https://img.shields.io/badge/已上线-Polymarket·Kalshi·Limitless-6e40c9.svg?style=flat-square)](#平台覆盖)
+[![Live venues](https://img.shields.io/badge/已上线-7_平台-6e40c9.svg?style=flat-square)](#平台覆盖)
 [![Roadmap](https://img.shields.io/badge/路线图-27+_平台-555.svg?style=flat-square)](#平台覆盖)
 
 > **一套执行核心。一套风控层。覆盖所有平台。**
-> 十款策略机器人运行在同一套久经实战的引擎与平台无关的适配层之上。接入一个新市场只需写**一个适配器**——而不是重建一个机器人。今天有三个平台已在生产环境上线；预测市场宇宙的其余部分都是适配器驱动的路线图。
+> 十款策略机器人运行在同一套久经实战的引擎与平台无关的适配层之上。接入一个新市场只需写**一个适配器**——而不是重建一个机器人。今天有七个平台已在生产环境上线；预测市场宇宙的其余部分都是适配器驱动的路线图。
 
 [策略](#策略) • [平台覆盖](#平台覆盖) • [引擎](#引擎) • [安全](#安全) • [联系方式](#联系方式)
 
@@ -50,7 +50,7 @@
 ## 平台覆盖
 
 引擎与平台无关：任何对外提供订单簿或仓位数据的平台，都能通过单个适配器接入。
-当前有三个平台**已在生产环境上线**；预测市场的其余版图都在适配器驱动的路线图上。
+当前有七个平台**已在生产环境上线**；预测市场的其余版图都在适配器驱动的路线图上。
 
 **图例：** 🟢 已上线 · 🟡 测试中（适配器调试中） · ⚪ 路线图（适配器驱动）
 
@@ -61,6 +61,10 @@
 | **Polymarket** | 去中心化（Polygon / USDC） | 全部 10 款 — 完整覆盖 |
 | **Kalshi** | CFTC 监管（美国） | 跨平台套利 · 结算狙击 · OBI · 做市 · 方向性套利 · 价差耕作 · 体育 |
 | **Limitless** | 链上订单簿 | 结算狙击 · OBI · 价差耕作 |
+| **Drift BET** | Solana | BTC 套利 · OBI · 做市 · 鲸鱼信号 |
+| **Augur** | 以太坊 | 结算狙击 · OBI |
+| **Azuro** | 去中心化协议 | 体育 · OBI |
+| **Myriad Markets** | 加密 | OBI · 方向性套利 |
 
 ### 传统 / 合规平台 — 路线图
 
@@ -79,12 +83,8 @@
 
 | 平台 | 链 / 类型 | 状态 | 最适配的策略 |
 |---|---|---|---|
-| **Drift BET** | Solana | ⚪ 路线图 | BTC 套利 · OBI · 做市 · 鲸鱼信号 |
-| **Azuro** | 去中心化协议 | ⚪ 路线图 | 体育 · OBI |
 | **Hedgehog Markets** | Solana / 社交 | ⚪ 路线图 | 跟单交易 · 方向性套利 |
-| **Augur** | 以太坊 | ⚪ 路线图 | 结算狙击 · OBI |
 | **Zeitgeist** | Polkadot | ⚪ 路线图 | OBI · 做市 |
-| **Myriad Markets** | 加密 | ⚪ 路线图 | OBI · 方向性套利 |
 | **Projection Finance** | 波动率 / 模拟 | ⚪ 路线图 | 方向性套利 · 价差耕作 |
 | **Better Fan** | 体育 / 电竞 | ⚪ 路线图 | 体育执行 |
 | **Manifold Markets** | 虚拟币（玩乐性质） | ⚪ 路线图 | 方向性套利（回测 / 研究沙盒） |

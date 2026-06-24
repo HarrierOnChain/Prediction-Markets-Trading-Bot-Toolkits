@@ -11,11 +11,11 @@
 [![Rust CI](https://github.com/HarrierOnChain/Prediction-Markets-Trading-Bot-Toolkits/actions/workflows/rust.yml/badge.svg)](https://github.com/HarrierOnChain/Prediction-Markets-Trading-Bot-Toolkits/actions/workflows/rust.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Tokio](https://img.shields.io/badge/async-tokio-blue.svg?style=flat-square)](https://tokio.rs/)
-[![Live venues](https://img.shields.io/badge/live-Polymarket·Kalshi·Limitless-6e40c9.svg?style=flat-square)](#venue-coverage)
+[![Live venues](https://img.shields.io/badge/live-7_venues-6e40c9.svg?style=flat-square)](#venue-coverage)
 [![Roadmap](https://img.shields.io/badge/roadmap-27+_venues-555.svg?style=flat-square)](#venue-coverage)
 
 > **One execution core. One risk layer. Every venue.**
-> Ten strategy bots run on a single battle-tested engine and a venue-agnostic adapter stack. Adding a market means writing **one adapter** — not rebuilding a bot. Three venues are live in production today; the rest of the prediction-market universe is adapter-driven roadmap.
+> Ten strategy bots run on a single battle-tested engine and a venue-agnostic adapter stack. Adding a market means writing **one adapter** — not rebuilding a bot. Seven venues are live in production today; the rest of the prediction-market universe is adapter-driven roadmap.
 
 [Strategies](#strategies) • [Venue Coverage](#venue-coverage) • [Engine](#engine) • [Safety](#safety) • [Contact](#contact)
 
@@ -50,7 +50,7 @@ A complete suite of ten production-grade trading bots, each engineered around a 
 ## Venue Coverage
 
 The engine is venue-agnostic: any platform exposing an order book or position
-feed plugs in through a single adapter. Three venues are **live in production**;
+feed plugs in through a single adapter. Seven venues are **live in production**;
 the rest of the prediction-market landscape is on the adapter-driven roadmap.
 
 **Legend:** 🟢 Live · 🟡 Beta (adapter in testing) · ⚪ Roadmap (adapter-driven)
@@ -62,6 +62,10 @@ the rest of the prediction-market landscape is on the adapter-driven roadmap.
 | [**Polymarket**](https://github.com/HarrierOnChain/Polymarket) | Decentralized (Polygon / USDC) | All 10 — full coverage |
 | [**Kalshi**](https://github.com/HarrierOnChain/Kalshi) | CFTC-regulated (US) | Cross-arb · Resolution Sniper · OBI · Market Making · Directional Arb · Spread · Sports |
 | [**Limitless**](https://github.com/HarrierOnChain/Limitless-Exchange) | On-chain order book | Resolution Sniper · OBI · Spread Farming |
+| [**Drift BET**](https://github.com/HarrierOnChain/Drift-BET) | Solana | BTC Arb · OBI · Market Making · Whale Signal |
+| [**Augur**](https://github.com/HarrierOnChain/Augur) | Ethereum | Resolution Sniper · OBI |
+| [**Azuro**](https://github.com/HarrierOnChain/Azuro) | Decentralized protocol | Sports · OBI |
+| [**Myriad Markets**](https://github.com/HarrierOnChain/Myriad-Markets) | Crypto | OBI · Directional Arb |
 
 ### Traditional / Regulated — roadmap
 
@@ -80,12 +84,8 @@ the rest of the prediction-market landscape is on the adapter-driven roadmap.
 
 | Venue | Chain / Type | Status | Best-fit strategies |
 |---|---|---|---|
-| [**Drift BET**](https://github.com/HarrierOnChain/Drift-BET) | Solana | ⚪ Roadmap | BTC Arb · OBI · Market Making · Whale Signal |
-| [**Azuro**](https://github.com/HarrierOnChain/Azuro) | Decentralized protocol | ⚪ Roadmap | Sports · OBI |
 | [**Hedgehog Markets**](https://github.com/HarrierOnChain/Hedgehog-Markets) | Solana / social | ⚪ Roadmap | Copy Trading · Directional Arb |
-| [**Augur**](https://github.com/HarrierOnChain/Augur) | Ethereum | ⚪ Roadmap | Resolution Sniper · OBI |
 | [**Zeitgeist**](https://github.com/HarrierOnChain/Zeitgeist) | Polkadot | ⚪ Roadmap | OBI · Market Making |
-| [**Myriad Markets**](https://github.com/HarrierOnChain/Myriad-Markets) | Crypto | ⚪ Roadmap | OBI · Directional Arb |
 | [**Projection Finance**](https://github.com/HarrierOnChain/Projection-Finance) | Volatility / sims | ⚪ Roadmap | Directional Arb · Spread |
 | [**Better Fan**](https://github.com/HarrierOnChain/Better-Fan) | Sports / esports | ⚪ Roadmap | Sports Execution |
 | [**Manifold Markets**](https://github.com/HarrierOnChain/Manifold-Markets) | Play-money | ⚪ Roadmap | Directional Arb (backtest / research sandbox) |

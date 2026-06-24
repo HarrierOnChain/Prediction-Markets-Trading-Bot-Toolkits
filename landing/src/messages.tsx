@@ -185,7 +185,7 @@ const messages: Record<Lang, Messages> = {
       eyebrow: 'Venue Coverage',
       headline: 'One engine. Every venue.',
       description:
-        'The engine is venue-agnostic — any platform with an order book or position feed plugs in through a single adapter. Three venues are live in production today; the rest of the prediction-market universe is adapter-driven roadmap. Each venue has its own dedicated bot repo.',
+        'The engine is venue-agnostic — any platform with an order book or position feed plugs in through a single adapter. Seven venues are live in production today; the rest of the prediction-market universe is adapter-driven roadmap. Each venue has its own dedicated bot repo.',
       statusLive: 'Live',
       statusRoadmap: 'Roadmap',
       groupLive: '🟢 Live today',
@@ -509,7 +509,7 @@ const messages: Record<Lang, Messages> = {
       eyebrow: '平台覆盖',
       headline: '一套引擎。覆盖所有平台。',
       description:
-        '引擎与平台无关——任何带订单簿或仓位数据的平台都能通过单个适配器接入。今天有三个平台已在生产环境上线；预测市场宇宙的其余部分都是适配器驱动的路线图。每个平台都有自己专属的机器人仓库。',
+        '引擎与平台无关——任何带订单簿或仓位数据的平台都能通过单个适配器接入。今天有七个平台已在生产环境上线；预测市场宇宙的其余部分都是适配器驱动的路线图。每个平台都有自己专属的机器人仓库。',
       statusLive: '已上线',
       statusRoadmap: '路线图',
       groupLive: '🟢 已上线',
@@ -831,7 +831,7 @@ const messages: Record<Lang, Messages> = {
       eyebrow: 'Покрытие площадок',
       headline: 'Один движок. Все площадки.',
       description:
-        'Движок не зависит от площадки — любая платформа со стаканом заявок или фидом позиций подключается через один адаптер. Три площадки уже работают в продакшене; остальная вселенная рынков предсказаний — план, управляемый адаптерами. У каждой площадки свой отдельный репозиторий бота.',
+        'Движок не зависит от площадки — любая платформа со стаканом заявок или фидом позиций подключается через один адаптер. Семь площадок уже работают в продакшене; остальная вселенная рынков предсказаний — план, управляемый адаптерами. У каждой площадки свой отдельный репозиторий бота.',
       statusLive: 'Активна',
       statusRoadmap: 'В плане',
       groupLive: '🟢 Активны сегодня',

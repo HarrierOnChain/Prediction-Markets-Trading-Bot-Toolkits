@@ -11,11 +11,11 @@
 [![Rust CI](https://github.com/HarrierOnChain/Prediction-Markets-Trading-Bot-Toolkits/actions/workflows/rust.yml/badge.svg)](https://github.com/HarrierOnChain/Prediction-Markets-Trading-Bot-Toolkits/actions/workflows/rust.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Tokio](https://img.shields.io/badge/async-tokio-blue.svg?style=flat-square)](https://tokio.rs/)
-[![Live venues](https://img.shields.io/badge/активны-Polymarket·Kalshi·Limitless-6e40c9.svg?style=flat-square)](#покрытие-площадок)
+[![Live venues](https://img.shields.io/badge/активны-7_площадок-6e40c9.svg?style=flat-square)](#покрытие-площадок)
 [![Roadmap](https://img.shields.io/badge/план-27+_площадок-555.svg?style=flat-square)](#покрытие-площадок)
 
 > **Одно ядро исполнения. Один слой риска. Все площадки.**
-> Десять стратегических ботов работают на едином, проверенном в бою движке и стеке адаптеров, не зависящем от площадки. Добавить рынок — значит написать **один адаптер**, а не пересобирать бота. Три площадки уже работают в продакшене; остальная вселенная рынков предсказаний — план, управляемый адаптерами.
+> Десять стратегических ботов работают на едином, проверенном в бою движке и стеке адаптеров, не зависящем от площадки. Добавить рынок — значит написать **один адаптер**, а не пересобирать бота. Семь площадок уже работают в продакшене; остальная вселенная рынков предсказаний — план, управляемый адаптерами.
 
 [Стратегии](#стратегии) • [Покрытие площадок](#покрытие-площадок) • [Движок](#движок) • [Безопасность](#безопасность) • [Контакты](#контакты)
 
@@ -50,7 +50,7 @@
 ## Покрытие площадок
 
 Движок не зависит от площадки: любая платформа, отдающая стакан заявок или фид
-позиций, подключается через один адаптер. Три площадки **работают в продакшене**;
+позиций, подключается через один адаптер. Семь площадок **работают в продакшене**;
 остальной ландшафт рынков предсказаний — в плане, управляемом адаптерами.
 
 **Легенда:** 🟢 Активна · 🟡 Бета (адаптер в тестировании) · ⚪ В плане (управляется адаптерами)
@@ -62,6 +62,10 @@
 | [**Polymarket**](https://github.com/HarrierOnChain/Polymarket) | Децентрализованная (Polygon / USDC) | Все 10 — полное покрытие |
 | [**Kalshi**](https://github.com/HarrierOnChain/Kalshi) | Регулируется CFTC (США) | Межрыночный арбитраж · Снайпер разрешения · OBI · Маркет-мейкинг · Направленный арбитраж · Спред · Спорт |
 | [**Limitless**](https://github.com/HarrierOnChain/Limitless-Exchange) | Ончейн-стакан заявок | Снайпер разрешения · OBI · Сбор спреда |
+| [**Drift BET**](https://github.com/HarrierOnChain/Drift-BET) | Solana | BTC арбитраж · OBI · Маркет-мейкинг · Сигнал китов |
+| [**Augur**](https://github.com/HarrierOnChain/Augur) | Ethereum | Снайпер разрешения · OBI |
+| [**Azuro**](https://github.com/HarrierOnChain/Azuro) | Децентрализованный протокол | Спорт · OBI |
+| [**Myriad Markets**](https://github.com/HarrierOnChain/Myriad-Markets) | Крипто | OBI · Направленный арбитраж |
 
 ### Традиционные / регулируемые — план
 
@@ -80,12 +84,8 @@
 
 | Площадка | Сеть / Тип | Статус | Наиболее подходящие стратегии |
 |---|---|---|---|
-| [**Drift BET**](https://github.com/HarrierOnChain/Drift-BET) | Solana | ⚪ План | BTC арбитраж · OBI · Маркет-мейкинг · Сигнал китов |
-| [**Azuro**](https://github.com/HarrierOnChain/Azuro) | Децентрализованный протокол | ⚪ План | Спорт · OBI |
 | [**Hedgehog Markets**](https://github.com/HarrierOnChain/Hedgehog-Markets) | Solana / социальная | ⚪ План | Копи-трейдинг · Направленный арбитраж |
-| [**Augur**](https://github.com/HarrierOnChain/Augur) | Ethereum | ⚪ План | Снайпер разрешения · OBI |
 | [**Zeitgeist**](https://github.com/HarrierOnChain/Zeitgeist) | Polkadot | ⚪ План | OBI · Маркет-мейкинг |
-| [**Myriad Markets**](https://github.com/HarrierOnChain/Myriad-Markets) | Крипто | ⚪ План | OBI · Направленный арбитраж |
 | [**Projection Finance**](https://github.com/HarrierOnChain/Projection-Finance) | Волатильность / симуляции | ⚪ План | Направленный арбитраж · Спред |
 | [**Better Fan**](https://github.com/HarrierOnChain/Better-Fan) | Спорт / киберспорт | ⚪ План | Спортивное исполнение |
 | [**Manifold Markets**](https://github.com/HarrierOnChain/Manifold-Markets) | Игровые деньги | ⚪ План | Направленный арбитраж (бэктест / исследовательская песочница) |
